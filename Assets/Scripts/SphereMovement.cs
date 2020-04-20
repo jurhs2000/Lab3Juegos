@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class SphereMovement : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class SphereMovement : MonoBehaviour
     {
         startPos = transform.localPosition;
         rb = GetComponent<Rigidbody>();
-        prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Sphere.prefab", typeof(GameObject));
+        prefab = Resources.Load("Prefabs/Sphere", typeof(GameObject)) as GameObject;
         newObj = GameObject.Find("Sphere");
         isProtected = false;
     }
@@ -59,14 +58,14 @@ public class SphereMovement : MonoBehaviour
         {
             isProtected = false;
             Destroy(other.gameObject);
-            GetComponent<MeshRenderer>().material = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Colors/Red.mat", typeof(Material));
+            GetComponent<MeshRenderer>().material = Resources.Load("Materials/Colors/Red", typeof(Material)) as Material;
         }
 
         if (other.gameObject.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
             isProtected = true;
-            GetComponent<MeshRenderer>().material = (Material)AssetDatabase.LoadAssetAtPath("Assets/Materials/Colors/LightRed.mat", typeof(Material));
+            GetComponent<MeshRenderer>().material = Resources.Load("Materials/Colors/LightRed", typeof(Material)) as Material;
             points++;
         }
     }

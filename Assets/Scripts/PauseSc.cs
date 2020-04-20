@@ -24,11 +24,13 @@ public class PauseSc : MonoBehaviour
             {
                 pauseScreen.SetActive(false);
                 isActive = false;
+                Time.timeScale = 1;
             }
             else
             {
                 pauseScreen.SetActive(true);
                 isActive = true;
+                Time.timeScale = 0;
             }
         }
     }

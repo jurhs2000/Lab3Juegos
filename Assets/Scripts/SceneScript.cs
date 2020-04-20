@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class SceneScript : MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class SceneScript : MonoBehaviour
     void Start()
     {
         sphereMovementScript = FindObjectOfType(typeof(SphereMovement)) as SphereMovement;
-        prefab = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Sphere.prefab", typeof(GameObject));
+        prefab = Resources.Load("Prefabs/Sphere", typeof(GameObject)) as GameObject;
         newObj = GameObject.Find("Sphere");
     }
 
