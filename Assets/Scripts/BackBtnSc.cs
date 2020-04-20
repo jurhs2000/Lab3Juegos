@@ -7,6 +7,6 @@ public class BackBtnSc : MonoBehaviour
 {
     public void GoBack()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
